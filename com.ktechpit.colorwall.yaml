@@ -63,7 +63,7 @@ modules:
   - name: colorwall
     buildsystem: simple
     build-commands:
-      - unsquashfs -no-progress tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_9.snap
+      - unsquashfs -no-progress tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_15.snap
       - install -Dm755 squashfs-root/usr/bin/colorwall ${FLATPAK_DEST}/bin/colorwall
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/
       - cp -r squashfs-root/usr/share/icons/hicolor/* ${FLATPAK_DEST}/share/icons/hicolor/
@@ -73,7 +73,7 @@ modules:
       - type: file
         # curl -H 'Snap-Device-Series: 16' https://api.snapcraft.io/v2/snaps/info/colorwall | jq '."channel-map"' | jq '.[]' | jq '[."download"."url"]' | grep -m1 https | tr -d ' ' | tr -d '"'
         # also update build-command whenever update url
-        url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_9.snap
+        url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_15.snap
         only-arches:
           - x86_64
-        sha256: 90e55b0e35dfa2be901c424b96aff10495621c17ce480100751be5d7f64e2cdc
+        sha256: 7442029e06ef5475dafb51036e799c241ec743b8df32cfb82885a8d290c71f5b

@@ -5,9 +5,9 @@ The Ultimate Desktop Wallpaper Application
   <img src="https://github.com/keshavbhatt/colorwall-issue-tracker/blob/main/images/github_banner.png?raw=true">
 </p>
 
-> Note: This Page is Issue tracker for ColorWall Linux
-
 ColorWall is a powerful desktop wallpaper store, manager, downloader, and application that provides users with a vast selection of high-quality wallpapers to choose from.
+
+<br/>
 
 ## Key features of ColorWall:
 
@@ -39,8 +39,27 @@ ColorWall is a powerful desktop wallpaper store, manager, downloader, and applic
 
 Note: ColorWall will gradually be available in other platforms like Windows and MacOs.
 
+<br/>
 
-## Screenshots of ColorWall version 1.2
+## Install ColorWall on Linux Desktop
+
+**Using snap**
+
+<a href="https://snapcraft.io/colorwall">
+  <img  width='240'  alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" />
+</a>
+
+`snap install colorwall`
+
+**Using Flatpak**
+
+<a href='https://flathub.org/apps/com.ktechpit.colorwall'><img width='240' alt='Download on Flathub' src='https://dl.flathub.org/assets/badges/flathub-badge-en.png'/></a>
+
+`flatpak install flathub com.ktechpit.colorwall`
+
+<br/>
+
+## Screenshots of ColorWall (could be outdated)
 
 ![ColorWall](https://github.com/keshavbhatt/colorwall-issue-tracker/blob/main/images/1.jpeg?raw=true)
 
