@@ -68,12 +68,8 @@ modules:
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/
       - cp -r squashfs-root/usr/share/icons/hicolor/* ${FLATPAK_DEST}/share/icons/hicolor/
       - install -Dm644 squashfs-root/usr/share/applications/com.ktechpit.colorwall.desktop ${FLATPAK_DEST}/share/applications/com.ktechpit.colorwall.desktop
-      - install -Dm644 com.ktechpit.colorwall.metainfo.xml ${FLATPAK_DEST}/share/metainfo/com.ktechpit.colorwall.metainfo.xml
+      - install -Dm644 squashfs-root/usr/share/metainfo/com.ktechpit.colorwall.metainfo.xml ${FLATPAK_DEST}/share/metainfo/com.ktechpit.colorwall.metainfo.xml
     sources:
-      - type: file
-        path: dist/linux/com.ktechpit.colorwall.metainfo.xml
-      - type: dir
-        path: dist/linux/
       - type: file
         # curl -H 'Snap-Device-Series: 16' https://api.snapcraft.io/v2/snaps/info/colorwall | jq '."channel-map"' | jq '.[]' | jq '[."download"."url"]' | grep -m1 https | tr -d ' ' | tr -d '"'
         # also update build-command whenever update url
