@@ -63,7 +63,7 @@ modules:
   - name: colorwall
     buildsystem: simple
     build-commands:
-      - unsquashfs -no-progress tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_16.snap
+      - unsquashfs -no-progress tPiGTcpRYwWhmLFqKMefGzuC6isfwbci*.snap
       - install -Dm755 squashfs-root/usr/bin/colorwall ${FLATPAK_DEST}/bin/colorwall
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/
       - cp -r squashfs-root/usr/share/icons/hicolor/* ${FLATPAK_DEST}/share/icons/hicolor/
