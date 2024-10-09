@@ -1,6 +1,6 @@
 app-id: com.ktechpit.colorwall
 runtime: org.kde.Platform
-runtime-version: 5.15-22.08
+runtime-version: 5.15-23.08
 sdk: org.kde.Sdk
 command: colorwall
 finish-args:
@@ -68,14 +68,15 @@ modules:
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/
       - cp -r squashfs-root/usr/share/icons/hicolor/* ${FLATPAK_DEST}/share/icons/hicolor/
       - install -Dm644 squashfs-root/usr/share/applications/com.ktechpit.colorwall.desktop ${FLATPAK_DEST}/share/applications/com.ktechpit.colorwall.desktop
+      - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/com.ktechpit.colorwall.desktop
       - install -Dm644 squashfs-root/usr/share/metainfo/com.ktechpit.colorwall.metainfo.xml ${FLATPAK_DEST}/share/metainfo/com.ktechpit.colorwall.metainfo.xml
     sources:
       - type: file
         # curl -H 'Snap-Device-Series: 16' https://api.snapcraft.io/v2/snaps/info/colorwall | jq '."channel-map"' | jq '.[]' | jq '[."download"."url"]' | grep -m1 https | tr -d ' ' | tr -d '"'
         # also update build-command whenever update url
-        url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_22.snap
+        url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_26.snap
         only-arches:
           - x86_64
-        # curl -Ls https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_22.snap | sha256sum
-        sha256: 92d7aa1d6c9a5594343131997038a60acda2cd6f83351762aa1744251e742189
+        # curl -Ls https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_26.snap | sha256sum
+        sha256: 90d9916b8aeec15bbb58d85cec5a8ee28a11a1adb40484818adb46c60a704260
 #END 2024-05-10
