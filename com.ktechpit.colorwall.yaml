@@ -74,9 +74,9 @@ modules:
       - type: file
         # curl -H 'Snap-Device-Series: 16' https://api.snapcraft.io/v2/snaps/info/colorwall | jq '."channel-map"' | jq '.[]' | jq '[."download"."url"]' | grep -m1 https | tr -d ' ' | tr -d '"'
         # also update build-command whenever update url
-        url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_28.snap
+        url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_29.snap
         only-arches:
           - x86_64
-        # curl -Ls https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_28.snap | sha256sum
-        sha256: 3f8aefc141d8a05bc561142705baeea3ed8d3d994f3cefcd3e97fc6230ec245a
+        # curl -Ls https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_29.snap | sha256sum
+        sha256: 0cccb2b3df3f97866e6a282568c487dc6d8ed34f3525a726634b0446948b514a
 #END 2024-05-10
