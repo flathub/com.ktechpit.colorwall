@@ -20,35 +20,8 @@ cleanup:
   - /lib/pkgconfig
 
 modules:
-  - name: lzo
-    config-opts:
-      - --enable-shared
-      - --disable-static
-    cleanup:
-      - /include
-      - /share/doc
-      - '*.la'
-      - /lib/*.so
-    sources:
-      - type: archive
-        url: http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
-        sha256: c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072
 
-
-  - name: squashfs-tools
-    buildsystem: simple
-    build-options:
-      cflags: -Wno-error=incompatible-pointer-types
-    build-commands:
-      - XZ_SUPPORT=1 LZO_SUPPORT=1 make -C squashfs-tools -j ${FLATPAK_BUILDER_N_JOBS} install INSTALL_DIR=${FLATPAK_DEST}/bin
-    cleanup:
-      - '*'
-    sources:
-    - type: git
-      url: https://github.com/plougher/squashfs-tools.git
-      tag: '4.5'
-      commit: '0496d7c3de3e09da37ba492081c86159806ebb07'
-
+  - shared-modules/squashfs-tools/squashfs-tools.json
 
   - name: libgumbo
     buildsystem: autotools
