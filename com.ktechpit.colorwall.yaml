@@ -29,15 +29,13 @@ cleanup-commands:
 modules:
   - shared-modules/squashfs-tools/squashfs-tools.json
 
-  - name: libgumbo
+  - name: libgumbo2
     buildsystem: autotools
     sources:
       - type: archive
-        url: https://github.com/google/gumbo-parser/archive/v0.10.1.tar.gz
-        sha256: 28463053d44a5dfbc4b77bcf49c8cee119338ffa636cc17fc3378421d714efad
+        url: http://archive.ubuntu.com/ubuntu/pool/universe/g/gumbo-parser/gumbo-parser_0.12.0+dfsg.orig.tar.xz
+        sha256: 4a20bef3fc3b60067e6eac068205fb4e3071ef4fe8b96fc1315fd8e6a8a81aa9
     cleanup:
-      - /lib/pkgconfig
-      - /include
       - '*.a'
       - '*.la'
 
