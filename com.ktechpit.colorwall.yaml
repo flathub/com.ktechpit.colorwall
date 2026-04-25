@@ -1,6 +1,8 @@
 app-id: com.ktechpit.colorwall
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.10'
 runtime: org.kde.Platform
-runtime-version: 5.15-25.08
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: colorwall
 finish-args:
@@ -17,10 +19,14 @@ finish-args:
 
 cleanup:
   - /include
-  - /lib/pkgconfig
+  - /lib/cmake
+  - /share/man
+  - /share/doc
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
 
 modules:
-
   - shared-modules/squashfs-tools/squashfs-tools.json
 
   - name: libgumbo
@@ -38,20 +44,29 @@ modules:
   - name: colorwall
     buildsystem: simple
     build-commands:
-      - unsquashfs -no-progress tPiGTcpRYwWhmLFqKMefGzuC6isfwbci*.snap
+      - unsquashfs -no-progress *.snap
       - install -Dm755 squashfs-root/usr/bin/colorwall ${FLATPAK_DEST}/bin/colorwall
-      - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/
-      - cp -r squashfs-root/usr/share/icons/hicolor/* ${FLATPAK_DEST}/share/icons/hicolor/
+      - cp -r squashfs-root/usr/share/icons ${FLATPAK_DEST}/share/
       - install -Dm644 squashfs-root/usr/share/applications/com.ktechpit.colorwall.desktop ${FLATPAK_DEST}/share/applications/com.ktechpit.colorwall.desktop
       - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/com.ktechpit.colorwall.desktop
       - install -Dm644 squashfs-root/usr/share/metainfo/com.ktechpit.colorwall.metainfo.xml ${FLATPAK_DEST}/share/metainfo/com.ktechpit.colorwall.metainfo.xml
+
     sources:
-      - type: file
-        # curl -H 'Snap-Device-Series: 16' https://api.snapcraft.io/v2/snaps/info/colorwall | jq '."channel-map"' | jq '.[]' | jq '[."download"."url"]' | grep -m1 https | tr -d ' ' | tr -d '"'
-        # also update build-command whenever update url
-        url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_29.snap
-        only-arches:
-          - x86_64
-        # curl -Ls https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_29.snap | sha256sum
-        sha256: 0cccb2b3df3f97866e6a282568c487dc6d8ed34f3525a726634b0446948b514a
-#END 2024-05-10
+        # =========================
+        # x86_64 – stable
+        # =========================
+        - type: file
+          url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_40.snap
+          sha256: 2707ff95786db93c210f7e4b400fe4c44d4f95e393a9505369da7beb956d88c6
+          only-arches:
+              - x86_64
+
+
+        # =========================
+        # aarch64 – stable
+        # =========================
+        - type: file
+          url: https://api.snapcraft.io/api/v1/snaps/download/tPiGTcpRYwWhmLFqKMefGzuC6isfwbci_41.snap
+          sha256: 9a3a290cc41928c96007dde6ec1c4982e6b0f84f45863ef93bea3f11615599bd
+          only-arches:
+              - aarch64
